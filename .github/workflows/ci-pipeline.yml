@@ -1,0 +1,19 @@
+name: CI Pipeline
+
+on:
+  push:
+
+jobs:
+  run-ci:
+    name: Run CI Script
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make script executable
+        run: chmod +x scripts/print-ci-message.sh
+
+      - name: Run CI script
+        run: ./scripts/print-ci-message.sh
